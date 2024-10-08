@@ -40,6 +40,8 @@ public class UniqueWordsMain {
             }
         }
 
+        
+
         bufferedReader.close();
 
         System.out.printf("Unique words in %s: %d\n", inputFile, uniqueWords.size());

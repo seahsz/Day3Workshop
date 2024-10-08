@@ -20,7 +20,7 @@ public class ReadFile {
 
 
     // Method to read File --> returns List of lines
-    public List<String> readFile() {
+    public List<String> readFile(boolean removePunct) {
         
         List<String> lines = new ArrayList<>();
 
@@ -32,9 +32,16 @@ public class ReadFile {
             String line;
             while(true) {
                 line = br.readLine();
-                if (line != null) {
-                    lines.add(line);
+                if (line == null)
+                    break;
+                String transformed = line.toLowerCase().trim();
+                if (removePunct) {
+                    transformed = transformed.replaceAll("\\p{Punct}", "");
+
                 }
+                
+                lines.add(transformed);
+                
             }
         } catch (IOException e) {
             e.printStackTrace();
